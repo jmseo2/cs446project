@@ -1,0 +1,61 @@
+\usepackage{tikz}
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{amstext}
+
+\newcounter{probcnt}
+\newenvironment{problem}[1]{\stepcounter{probcnt}{\bf Problem \arabic{probcnt}}. [Category: #1]}{}
+\newenvironment{solution}{{\bf Solution:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+\newcounter{pracprobcnt}
+\newenvironment{pracproblem}{\stepcounter{pracprobcnt}{\bf Practice Problem \arabic{pracprobcnt}}.}{}
+
+\newcommand{\setof}[1] {\{#1\}}
+\newcommand{\points}[1] {\hfill{\bf [#1 points]}}
+\newcommand{\ints} {{\mathbb Z}}
+\newcommand{\nat} {{\mathbb N}}
+\newcommand{\rats} {{\mathbb Q}}
+\newcommand{\rls} {{\mathbb R}}
+\newcommand{\powerset}[1] {2^{{#1}}}
+\newcommand{\emptystr} {\epsilon}
+\newcommand{\deltastr}[1] {\hat{\delta}_{#1}}
+\newcommand{\ndeltastr} {\hat{\Delta}}
+\newcommand{\lang}[1] {{\bf L}(#1)}
+\newcommand{\mymatrix}[3] {\left[\begin{array}{c}#1\\#2\\#3\end{array}\right]}
+\newcommand{\mymattwo}[2] {\left[\begin{array}{c}#1\\#2\end{array}\right]}
+\newcommand{\trans}[4] {#2 \stackrel{#3}{\longrightarrow}_{#1} #4}
+\newcommand{\shuffle}[1] {{\rm shuffle}(#1)}
+\newcommand{\suffixL}[2][L] {{\rm suffix}(#1,#2)}
+\newcommand{\suffixQ}[2][M] {{\rm suffix}(#1,#2)}
+\newcommand{\collsuf}[1] {{\cal C}_{{\rm suf}}(#1)}
+\newcommand{\prefixL}[2][L] {{\rm prefix}(#1,#2)}
+\newcommand{\collpref}[1] {{\cal C}_{{\rm pref}}(#1)}
+\newcommand{\novline}[1] {\multicolumn{1}{c@{\ \ }}{#1}}
+\newcommand{\qacc} {\ensuremath{q_{\mathsf{acc}}}\xspace}
+\newcommand{\qrej} {\ensuremath{q_{\mathsf{rej}}}\xspace}
+\newcommand{\movetm} {\vdash}
+\newcommand{\movetmst} {{\movetm}^*}
+\newcommand{\blank} {\ensuremath{\sqcup}\xspace}
+\newcommand{\lft} {\ensuremath{{\mathsf{L}}}\xspace}
+\newcommand{\rght} {\ensuremath{{\mathsf{R}}}\xspace}
+\newcommand{\config} {\ensuremath{\text{\sc{c}}}\xspace}
+\newcommand{\tuple}[1] {\langle #1 \rangle}
+\newcommand{\derive} {\Rightarrow}
+\newcommand{\derivest} {\stackrel{*}{\derive}}
+
+%% Mahesh's Tikz macros for automata
+\tikzstyle{autst}=[draw,circle,minimum size=0.7cm]
+\tikzstyle{finalst}=[draw,circle,double,minimum size=0.7cm]
+\newcommand{\initialst}[1] {\draw[<-] (#1.west) -- +(-0.3,0)}
+\newcommand{\selfloopabove}[2] {\draw[->] (#1.110) .. controls +(120:1) and ([shift=(60:1)] #1.70) .. node[above] {#2} (#1.70)}
+\newcommand{\selfloopbelow}[2] {\draw[->] (#1.250) .. controls +(240:1) and ([shift=(300:1)] #1.290) .. node[below] {#2} (#1.290)}
+\newcommand{\selfloopright}[2] {\draw[->] (#1.20) .. controls +(30:1) and ([shift=(330:1)] #1.340) .. node[right] {#2} (#1.330)}
+\newcommand{\selfloopabovetxt}[3] {\draw[->] (#1.110) .. controls +(120:1) and ([shift=(60:1)] #1.70) .. node[above,text width=#3,text badly centered] {#2} (#1.70)}
+\newcommand{\selfloopbelowtxt}[3] {\draw[->] (#1.250) .. controls +(240:1) and ([shift=(300:1)] #1.290) .. node[below,text width=#3,text badly centered] {#2} (#1.290)}
+\newcommand{\curveltorabove}[3] {\draw[->] (#1.30) .. controls +(45:0.5) and ([shift=(135:0.5)] #2.150) .. node[above] {#3} (#2.150)}
+\newcommand{\curveltorbelow}[3] {\draw[->] (#1.330) .. controls +(315:0.5) and ([shift=(225:0.5)] #2.210) .. node[below] {#3} (#2.210)}
+\newcommand{\curvertolabove}[3] {\draw[->] (#1.150) .. controls +(135:0.5) and ([shift=(45:0.5)] #2.30) .. node[above] {#3} (#2.30)}
+\newcommand{\curvertolbelow}[3] {\draw[->] (#1.210) .. controls +(225:0.5) and ([shift=(315:0.5)] #2.330) .. node[below] {#3} (#2.330)}
+\newcommand{\curvettobleft}[3] {\draw[->] (#1.240) .. controls +(225:0.5) and ([shift=(135:0.5)] #2.120) .. node[left] {#3} (#2.120)}
+\newcommand{\curvettobright}[3] {\draw[->] (#1.300) .. controls +(315:0.5) and ([shift=(45:0.5)] #2.60) .. node[right] {#3} (#2.60)}
+\newcommand{\curvebtotleft}[3] {\draw[->] (#1.120) .. controls +(135:0.5) and ([shift=(225:0.5)] #2.240) .. node[left] {#3} (#2.240)}
+\newcommand{\curvebtotright}[3] {\draw[->] (#1.60) .. controls +(45:0.5) and ([shift=(315:0.5)] #2.300) .. node[right] {#3} (#2.300)}
